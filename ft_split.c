@@ -10,59 +10,58 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-/*
 #include<stdio.h>
 #include<stdlib.h>
 
 int	count_word(char const *s, char c)
 {
-	int	i;
 	int	x;
-	int	y;
+	int	i;
 
-	i = 0;
 	x = 0;
-	y = 0;
-	if (s[i] == c)
-		i++;
-
+	i = 0;
 	while (s[i])
 	{
-		while (s[i] != c && s[i])
-			i++;
+		if (s[i] != c && s[i + 1] == c || s[i + 1] == '\0')
+			x++;
 
-		while (s[i] == c)
-			i++;
-		x++;
+		i++;
 	}
-	if (s[i -1] != c)
-		x++;
 	return (x);
 }
+
 
 char **ft_split(char const *s, char c)
 {
 	int		x;
 	int		i;
+	int		j;
 	char	**tab;
 
 	i = 0;
+	j = 0;
 	x = count_word(s, c);
+	printf("%d\n", x);
 	tab = malloc(sizeof(char*) * (x + 1));
-	
-	while (s[i])
+	while (i <= x)
 	{
-	
+		if (s[i] != c && s[i + 1] == c || s[i + 1] == '\0')
+		{
+			tab[j] = 
+			x++;
+		}
+			
 	}
+	
+	return (0);
 }
 
 
 int main()
 {
-	char *tab = ",  Ceci, est , un, test";
+	char *tab = "Ceci,est,un,test";
 	char c = ',';
 
-	printf("%d", count_word(tab, c));
+	ft_split(tab, c);
 }
-*/
+

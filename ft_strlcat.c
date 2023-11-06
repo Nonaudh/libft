@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:12:03 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/03 15:31:16 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/06 18:18:35 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,23 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	i;
 	size_t	j;
 
+	if (dest == 0 && size == 0)
+		return (0);
 	x = ft_strlen(src);
 	y = ft_strlen(dest);
 	i = 0;
 	j = y;
-	while (i < size && dest[i])
+	if (y < size - 1 && size > 0)
 	{
-		dest[j] = src[i];
-		j++;
-		i++;
+		while (y + i < size - 1 && src[i])
+		{
+			dest[j] = src[i];
+			j++;
+			i++;
+		}
+		dest[j] = 0;
 	}
-	dest[j] = 0;
+	if (y >= size)
+		y = size;
 	return (x + y);
 }
-

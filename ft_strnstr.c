@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:26:10 by ahuge             #+#    #+#             */
-/*   Updated: 2023/10/30 17:51:56 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/06 18:21:09 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t l)
 
 	i = 0;
 	y = 0;
+	if (big == 0 && l == 0)
+		return (0);
 	if (little[i] == '\0')
 		return ((char *)big);
 	while (big[i] != '\0' && i < l)

@@ -6,45 +6,39 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:05:24 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/01 12:56:57 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/06 20:32:55 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-
-unsigned int	ft_malloc_len(size_t len, size_t x);
+#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	x;
 	char	*tab;
 
 	i = 0;
-	x = 0;
-	while (s[i] != (const char)start)
-		i++;
-	while (s[i + x])
-		x++;
-	len = ft_malloc_len(len, x);
+	if (ft_strlen(s) <= (int)start)
+		len = 0;
 	tab = malloc(sizeof(char) * (len + 1));
 	if (tab == NULL)
-		return (NULL);
-	x = 0;
-	while (x < len)
+		return(NULL);
+	while (i < len)
 	{
-		tab[x] = s[i];
+		tab[i] = s[start + i];
 		i++;
-		x++;
 	}
-	tab[x] = 0;
+	tab[i] = '\0';
 	return (tab);
 }
 
-unsigned int	ft_malloc_len(size_t len, size_t x)
+/*
+#include <stdio.h>
+
+int main ()
 {
-	if (x < len)
-		return (x);
-	else
-		return (len);
+	char *tab = "test";
+	printf("%s", ft_substr(tab, 10, 10));
 }
+*/

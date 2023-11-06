@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:33:08 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/03 16:08:44 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/06 16:46:38 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	sdest = dest;
 	ssrc = src;
+	if (dest == 0 && src == 0)
+		return (0);
 	while (i < n)
 	{
 		*(sdest + i) = *(ssrc + i);
@@ -38,6 +40,6 @@ int main ()
 	char *tab1;
 	char *tab2;
 	printf("%s\n", (char *)ft_memcpy(((void*)0), ((void*)0), 3));
-	printf("%s\n", (char *)memcpy(((void*)0), ((void*)0), 3));
+	//printf("%s\n", (char *)memcpy(((void*)0), ((void*)0), 3));
 }
 */

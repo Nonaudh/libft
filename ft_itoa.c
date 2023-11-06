@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:58:43 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/01 14:13:33 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/06 20:57:35 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	n_len(int n, int *z)
 		n = -n;
 		*z = 1;
 	}
+	if (n == 0)
+		i++;
 	while (n != 0)
 	{
 		n /= 10;
@@ -44,13 +46,13 @@ int	ind_n(int n)
 char	*ft_itoa(int n)
 {
 	int		i;
-	int		x;
+	unsigned int		x;
 	int		z;
 	char	*tab;
 
 	z = 0;
+	
 	i = n_len(n, &z);
-	n = ind_n(n);
 	tab = malloc(sizeof(char) * (i + 1));
 	if (tab == NULL)
 		return (NULL);
@@ -58,7 +60,7 @@ char	*ft_itoa(int n)
 	i--;
 	while (i >= 0 && tab[i] != '-')
 	{
-		x = n % 10;
+		x = ind_n(n % 10);
 		n = n / 10;
 		tab[i] = x + '0';
 		i--;

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
 #include<stdlib.h>
 
 int	n_len(int n, int *z)
@@ -60,12 +59,17 @@ char	*ft_itoa(int n)
 	i--;
 	while (i >= 0 && tab[i] != '-')
 	{
-		x = ind_n(n % 10);
+		tab[i] = ind_n(n % 10) + '0';
 		n = n / 10;
-		tab[i] = x + '0';
 		i--;
 		if (z == 1 && i == 0)
 			tab[i] = '-';
 	}
 	return (tab);
+}
+#include <stdio.h>
+
+int main ()
+{
+	printf("%s\n", ft_itoa(-42069));
 }

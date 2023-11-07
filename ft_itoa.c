@@ -6,11 +6,11 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:58:43 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/06 20:57:35 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/07 19:02:10 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include <stdlib.h>
 
 int	n_len(int n, int *z)
 {
@@ -45,12 +45,10 @@ int	ind_n(int n)
 char	*ft_itoa(int n)
 {
 	int		i;
-	unsigned int		x;
 	int		z;
 	char	*tab;
 
 	z = 0;
-	
 	i = n_len(n, &z);
 	tab = malloc(sizeof(char) * (i + 1));
 	if (tab == NULL)
@@ -67,9 +65,11 @@ char	*ft_itoa(int n)
 	}
 	return (tab);
 }
+/*
 #include <stdio.h>
 
 int main ()
 {
 	printf("%s\n", ft_itoa(-42069));
 }
+*/

@@ -1,34 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 16:34:30 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/07 19:05:33 by ahuge            ###   ########.fr       */
+/*   Created: 2023/11/07 14:10:17 by ahuge             #+#    #+#             */
+/*   Updated: 2023/11/07 15:43:45 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*tab;
-	int		x;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	x = ft_strlen(s);
-	tab = malloc(sizeof(char) * (x + 1));
+	if (!s || !f)
+		return (NULL);
+	tab = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (tab == NULL)
 		return (NULL);
-	while (i < x)
+	while (s[i])
 	{
-		tab[i] = s[i];
+		tab[i] = (*f)(i, s[i]);
 		i++;
 	}
 	tab[i] = 0;
 	return (tab);
 }
+/*
+char	upper(unsigned int i, char tab)
+{
+	(void)i;
+	if (tab > 96 && tab < 123)
+		return (tab - 32);
+
+	else
+		return (tab);
+}
+
+int main ()
+{
+	char *tab = "Ceci est un test";
+	char *tab1 = ft_strmapi(tab, upper);
+	printf("%s", tab1);	
+}
+*/

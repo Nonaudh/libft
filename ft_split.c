@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:12:08 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/06 19:33:11 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/07 19:02:58 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_tabset(char **tab, const char *s, int c)
 		{
 			tab[j] = malloc(sizeof(char) * (x + 1));
 			if (tab[j] == 0)
-				return;
+				return ;
 			ft_tabcpy(tab[j], &s[i], c);
 			j++;
 			i = i + x;

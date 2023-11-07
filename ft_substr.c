@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:05:24 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/06 20:32:55 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:49:14 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*tab;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if (ft_strlen(s) <= (int)start)
 		len = 0;
 	tab = malloc(sizeof(char) * (len + 1));
 	if (tab == NULL)
-		return(NULL);
+		return (NULL);
 	while (i < len)
 	{
 		tab[i] = s[start + i];

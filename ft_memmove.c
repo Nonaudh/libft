@@ -6,11 +6,11 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:02:39 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/06 19:39:13 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/07 16:04:19 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+
 #include<stdio.h>
 #include<string.h>
 
@@ -22,15 +22,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	ddest = dest;
 	ssrc = src;
-	i = 0;
-
-	printf("%s", (char *)src);
-	
-	
-
+	ssrc++;
+	i = n;
+	i++;
 	return (ddest);
 }
-
+/*
 int main ()
 {
 	char tab[50] = "Ceci est un test";

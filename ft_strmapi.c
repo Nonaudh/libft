@@ -32,21 +32,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	tab[i] = 0;
 	return (tab);
 }
-/*
-char	upper(unsigned int i, char tab)
-{
-	(void)i;
-	if (tab > 96 && tab < 123)
-		return (tab - 32);
-
-	else
-		return (tab);
-}
-
-int main ()
-{
-	char *tab = "Ceci est un test";
-	char *tab1 = ft_strmapi(tab, upper);
-	printf("%s", tab1);	
-}
-*/

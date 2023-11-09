@@ -6,13 +6,13 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:58:43 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/07 19:02:10 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/09 15:20:17 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	n_len(int n, int *z)
+static int	n_len(int n, int *z)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int	n_len(int n, int *z)
 	return (i);
 }
 
-int	ind_n(int n)
+static int	ind_n(int n)
 {
 	if (n < 0)
 		return (-n);
@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 
 	z = 0;
 	i = n_len(n, &z);
-	tab = malloc(sizeof(char) * (i + 1));
+	tab = ft_calloc((i + 1), sizeof(char));
 	if (tab == NULL)
 		return (NULL);
 	tab[i] = 0;
@@ -65,11 +65,3 @@ char	*ft_itoa(int n)
 	}
 	return (tab);
 }
-/*
-#include <stdio.h>
-
-int main ()
-{
-	printf("%s\n", ft_itoa(-42069));
-}
-*/

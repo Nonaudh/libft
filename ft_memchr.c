@@ -27,16 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
-/*
-#include<stdio.h>
-#include<string.h>
-
-int main ()
-{
-	char *src = "Ceci est un test";
-	int size = 10;
-
-	printf("%s\n", (char *)ft_memchr(src, 't', size));
-	printf("%s\n", (char *)memchr(src, 't', size));
-}
-*/

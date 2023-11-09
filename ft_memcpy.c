@@ -30,16 +30,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-#include<stdio.h>
-#include<string.h>
-
-int main ()
-{
-	char *tab;
-	char *tab1;
-	char *tab2;
-	printf("%s\n", (char *)ft_memcpy(((void*)0), ((void*)0), 3));
-	//printf("%s\n", (char *)memcpy(((void*)0), ((void*)0), 3));
-}
-*/

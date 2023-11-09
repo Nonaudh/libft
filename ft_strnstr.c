@@ -39,11 +39,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t l)
 	}
 	return (0);
 }
-/*
-int main ()
-{
-	const char *big = "aaabcabcd";
-	const char *little = "aabc";
-	printf("%s", ft_strnstr(big, little, 11));
-}
-*/

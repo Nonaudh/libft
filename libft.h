@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:45:21 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/02 17:00:53 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:06:43 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-size_t  ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strtrim(char const *s1, char const *set);
 
 #endif

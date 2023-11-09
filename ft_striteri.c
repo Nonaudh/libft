@@ -25,18 +25,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-/*
-#include <stdio.h>
-
-void    upper(unsigned int i, char *tab)
-{
-        (void)i;
-	printf("i = %d, tab = %s\n", i, tab);
-}
-
-int main ()
-{
-        char *tab = "Ceci est un test";
-        ft_striteri(tab, upper);
-}
-*/

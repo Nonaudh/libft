@@ -6,16 +6,14 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:12:08 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/08 18:02:25 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:43:30 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-#include <stdio.h>
-
-int	count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int	x;
 	int	i;
@@ -31,28 +29,32 @@ int	count_word(char const *s, char c)
 	return (x);
 }
 
-void	ft_tabcpy(char *dest, char const *src, int c)
+static	void	free_the_tab(char **tab, int j)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != c && src[i] != '\0')
+	while (i <= j)
 	{
-		dest[i] = src[i];
+		free(tab[i]);
 		i++;
 	}
-	dest[i] = '\0';
+	free(tab);
 }
 
-void	ft_tabset(char **tab, const char *s, int c)
+static void	set_variables(int *i, int *j)
+{
+	*i = 0;
+	*j = 0;
+}
+
+static void	ft_tabset(char **tab, const char *s, int c)
 {
 	int	i;
 	int	x;
 	int	j;
 
-	i = 0;
-	x = 0;
-	j = 0;
+	set_variables(&i, &j);
 	while (s[i])
 	{
 		x = 0;
@@ -60,10 +62,12 @@ void	ft_tabset(char **tab, const char *s, int c)
 			x++;
 		if (x > 0)
 		{
-			tab[j] = malloc(sizeof(char) * (x + 1));
+			tab[j] = ft_substr(s, i, x);
 			if (tab[j] == 0)
+			{
+				free_the_tab(tab, j);
 				return ;
-			ft_tabcpy(tab[j], s + i, c);
+			}	
 			j++;
 			i = i + x;
 		}
@@ -87,19 +91,3 @@ char	**ft_split(char const *s, char c)
 	ft_tabset(tab, s, c);
 	return (tab);
 }
-/*
-int main()
-{
-	char *tab = "lorem ipsum Suspendisse";
-	char c = 0;
-	char **res;
-	int j = 0;
-	res = ft_split(tab, c);
-
-	while (j <= count_word(tab, c))
-	{
-		printf("%s\n", res[j]);
-		j++;
-	}
-}
-*/

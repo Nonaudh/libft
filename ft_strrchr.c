@@ -30,15 +30,3 @@ char	*ft_strrchr(const char *src, int c)
 	else
 		return ((char *)src + x);
 }
-
-/*
-#include<stdio.h>
-#include<string.h>
-
-int main ()
-{
-	char *src = "";
-	printf("%s\n", strrchr(src, 0));
-	printf("%s", ft_strrchr(src, 0));
-}
-*/

@@ -6,13 +6,13 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:02:39 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/08 16:17:02 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:57:47 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	reverse_set_tab(unsigned char *dest, unsigned const char *src, size_t n)
+static void	reverse_set_tab(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 
@@ -26,9 +26,9 @@ void	reverse_set_tab(unsigned char *dest, unsigned const char *src, size_t n)
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t					i;
-	unsigned char			*ddest;
-	unsigned const char		*ssrc;
+	size_t			i;
+	char			*ddest;
+	const char		*ssrc;
 
 	i = 0;
 	ddest = dest;

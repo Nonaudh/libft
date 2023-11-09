@@ -6,7 +6,7 @@
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:21:13 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/07 19:00:20 by ahuge            ###   ########.fr       */
+/*   Updated: 2023/11/08 20:26:23 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_end(s1, set);
 	if (end <= start)
 	{
-		tab = "";
+		tab = malloc(sizeof(char) * 1);
+		*tab = 0;
 		return (tab);
 	}
-	tab = malloc(sizeof(char) * (end - start + 1));
+	//tab = malloc(sizeof(char) * (end - start + 1));
 	tab = ft_substr(s1, start, (end - start));
 	return (tab);
 }
-/*
-#include <stdio.h>
 
+#include <stdio.h>
+/*
 int main ()
 {
-	char *tab = "";
-	char *set = " \n\t";
+	char *tab = "   xxx   xxx";
+	char *set = " x";
 	printf("%s", ft_strtrim(tab, set));
 }
 */

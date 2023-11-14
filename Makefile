@@ -6,7 +6,7 @@
 #    By: ahuge <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 13:54:46 by ahuge             #+#    #+#              #
-#    Updated: 2023/11/03 18:05:21 by ahuge            ###   ########.fr        #
+#    Updated: 2023/11/14 17:47:58 by ahuge            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,18 +20,25 @@ SOURCES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit
 ft_memset.c ft_split.c ft_strchr.c ft_strjoin.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_substr.c ft_tolower.c ft_toupper.c ft_calloc.c \
 ft_strdup.c ft_strlcat.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_strmapi.c ft_striteri.c ft_strtrim.c
 
+SOURCES_BONUS = ft_lstnew.c
+
 all : $(NAME)
 
 OBJECTS = $(SOURCES:.c=.o)
+
+OBJECTS_BONUS = $(SOURCES_BONUS:.c=.o)
 
 $(NAME) : $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS)
 
 $(NAME) : $(NAME) $(OBJECTS)
-	ar -rcs $@ $?
+	ar -rcs $(NAME) $(OBJECTS)
 
+bonus : $(OBJECTS) $(OBJECTS_BONUS)
+	ar -rcs $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
+ 
 clean :
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
@@ -42,4 +49,4 @@ re: fclean all
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES)
-	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
+	gcc -nostartfiles -shared -o libft.so $(OBJECTS) $(OBJECTS_BONUS)

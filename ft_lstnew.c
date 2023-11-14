@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 18:57:47 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/08 19:04:36 by ahuge            ###   ########.fr       */
+/*   Created: 2023/11/14 16:33:33 by ahuge             #+#    #+#             */
+/*   Updated: 2023/11/14 18:06:46 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t l)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	y;
+	t_list	*lst;
+	lst = malloc(sizeof(t_list));
+	if (lst == NULL)
+		return (NULL);
 
-	i = 0;
-	if (big == 0 && l == 0)
-		return (0);
-	if (little[i] == '\0')
-		return ((char *)big);
-	while (big[i] != '\0')
-	{
-		y = 0;
-		while (big[i + y] == little[y] && (i + y) < l)
-		{
-			if (little[y] == '\0')
-				return ((char *)big + i);
-			y++;
-		}
-		if (little[y] == '\0')
-			return ((char *)big + i);
-		i++;
-	}
-	return (0);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }
+/*
+#include <stdio.h>
+
+int main ()
+{
+	int *test;
+	int nb = 420;
+	test = &nb;
+	t_list *result;
+	result = ft_lstnew(test);
+	printf("%d", (*((int *)(result->content))));
+}
+*/

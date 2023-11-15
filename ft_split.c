@@ -66,7 +66,7 @@ static void	ft_tabset(char **tab, const char *s, int c)
 			{
 				free_the_tab(tab, j);
 				return ;
-			}	
+			}
 			j++;
 			i = i + x;
 		}

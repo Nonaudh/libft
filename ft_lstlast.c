@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 16:33:33 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/15 17:32:00 by ahuge            ###   ########.fr       */
+/*   Created: 2023/11/15 18:09:43 by ahuge             #+#    #+#             */
+/*   Updated: 2023/11/15 18:57:46 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*lst;
-	lst = malloc(sizeof(t_list));
-	if (lst == NULL)
-		return (NULL);
-
-	lst->content = content;
-	lst->next = NULL;
+	while (lst && lst->next)
+	{
+		lst = lst->next;
+	}
 	return (lst);
 }
 /*
@@ -28,9 +25,19 @@ t_list	*ft_lstnew(void *content)
 
 int main ()
 {
-	int nb = 420;
-	t_list *result;
-	result = ft_lstnew(&nb);
-	printf("%d", (*((int *)(result->content))));
+        int nb = 420;
+        int nb2 = 42;
+        t_list *result;
+        t_list *new;
+
+        result = ft_lstnew(&nb);
+        printf("%d\n", (*((int *)(result->content))));
+	new = ft_lstnew(&nb2);
+        ft_lstadd_front(&result, new);
+	result = result->next;
+        printf("%d\n", (*((int *)(result->content))));
+
+        
+        printf("%d\n", (*(int *)ft_lstlast(result)->content));
 }
 */

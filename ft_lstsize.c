@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahuge <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 16:33:33 by ahuge             #+#    #+#             */
-/*   Updated: 2023/11/15 17:32:00 by ahuge            ###   ########.fr       */
+/*   Created: 2023/11/15 17:43:45 by ahuge             #+#    #+#             */
+/*   Updated: 2023/11/15 18:08:10 by ahuge            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int ft_lstsize(t_list *lst)
 {
-	t_list	*lst;
-	lst = malloc(sizeof(t_list));
-	if (lst == NULL)
-		return (NULL);
+	int	i;
 
-	lst->content = content;
-	lst->next = NULL;
-	return (lst);
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
 /*
 #include <stdio.h>
@@ -29,8 +30,16 @@ t_list	*ft_lstnew(void *content)
 int main ()
 {
 	int nb = 420;
-	t_list *result;
-	result = ft_lstnew(&nb);
-	printf("%d", (*((int *)(result->content))));
+        int nb2 = 42;
+        t_list *result;
+        t_list *new;
+        result = ft_lstnew(&nb);
+        new = ft_lstnew(&nb2);
+        printf("%d\n", (*((int *)(result->content))));
+
+        ft_lstadd_front(&result, new);
+        printf("%d\n", (*((int *)(result->content))));
+	
+	printf("%d\n", ft_lstsize(result));
 }
 */

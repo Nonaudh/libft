@@ -23,14 +23,3 @@ t_list	*ft_lstnew(void *content)
 	lst->next = NULL;
 	return (lst);
 }
-/*
-#include <stdio.h>
-
-int main ()
-{
-	int nb = 420;
-	t_list *result;
-	result = ft_lstnew(&nb);
-	printf("%d", (*((int *)(result->content))));
-}
-*/

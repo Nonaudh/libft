@@ -21,27 +21,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		ft_lstlast(*lst)->next = new;
 }
-/*
-#include <stdio.h>
-
-int main ()
-{
-        int nb = 420;
-        int nb2 = 42;
-	int nb3 = 96;
-        t_list *result;
-        t_list *new;
-	t_list *back;
-
-        result = ft_lstnew(&nb);
-        printf("%d\n", (*((int *)(result->content))));
-        new = ft_lstnew(&nb2);
-	back = ft_lstnew(&nb3);
-        ft_lstadd_front(&result, new);
-        printf("%d\n", (*((int *)(result->content))));
-        printf("%d\n", (*(int *)ft_lstlast(result)->content));
-	ft_lstadd_back(&result, back);
-	printf("%d\n", (*(int *)ft_lstlast(result)->content));
-	
-}
-*/

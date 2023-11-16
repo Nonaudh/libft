@@ -24,22 +24,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-/*
-#include <stdio.h>
-
-int main ()
-{
-	int nb = 420;
-        int nb2 = 42;
-        t_list *result;
-        t_list *new;
-        result = ft_lstnew(&nb);
-        new = ft_lstnew(&nb2);
-        printf("%d\n", (*((int *)(result->content))));
-
-        ft_lstadd_front(&result, new);
-        printf("%d\n", (*((int *)(result->content))));
-	
-	printf("%d\n", ft_lstsize(result));
-}
-*/

@@ -20,24 +20,3 @@ t_list	*ft_lstlast(t_list *lst)
 	}
 	return (lst);
 }
-/*
-#include <stdio.h>
-
-int main ()
-{
-        int nb = 420;
-        int nb2 = 42;
-        t_list *result;
-        t_list *new;
-
-        result = ft_lstnew(&nb);
-        printf("%d\n", (*((int *)(result->content))));
-	new = ft_lstnew(&nb2);
-        ft_lstadd_front(&result, new);
-	result = result->next;
-        printf("%d\n", (*((int *)(result->content))));
-
-        
-        printf("%d\n", (*(int *)ft_lstlast(result)->content));
-}
-*/

@@ -33,7 +33,7 @@ static	void	free_the_tab(char **tab, int j)
 	int	i;
 
 	i = 0;
-	while (i <= j)
+	while (i < j)
 	{
 		free(tab[i]);
 		i++;

@@ -28,8 +28,8 @@ OBJECTS = $(SOURCES:.c=.o)
 
 OBJECTS_BONUS = $(SOURCES_BONUS:.c=.o)
 
-$(NAME) : $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS)
+%.o: %.c
+	$(CC) -c $(CFLAGS) $?
 
 $(NAME) : $(NAME) $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)

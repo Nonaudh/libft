@@ -15,12 +15,9 @@ char	*ft_strchr(const char *src, int c)
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
-	{
-		if (src[i] == (char) c)
-			return ((char *)src + i);
+	while (src[i] != '\0' && src[i] != (char) c)
 		i++;
-	}
+
 	if (src[i] == (char) c)
 		return ((char *)src + i);
 	return (0);

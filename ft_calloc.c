@@ -15,10 +15,10 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void		*tab;
-	long long	nm_size;
+	long		nm_size;
 
 	nm_size = nmemb * size;
-	if (nm_size < 0 || ((long long)nmemb < 0 && (long long)size))
+	if (nm_size < 0 || ((long)nmemb < 0 && (long)size))
 		return (NULL);
 	tab = malloc(nm_size);
 	if (!tab)

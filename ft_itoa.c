@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	n_len(int n, int *z)
+static int	n_len(long n)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ static int	n_len(int n, int *z)
 	if (n < 0)
 	{
 		n = -n;
-		*z = 1;
+		i++;
 	}
 	if (n == 0)
 		i++;
@@ -29,39 +29,32 @@ static int	n_len(int n, int *z)
 		n /= 10;
 		i++;
 	}
-	if (*z == 1)
-		i++;
 	return (i);
-}
-
-static int	ind_n(int n)
-{
-	if (n < 0)
-		return (-n);
-	else
-		return (n);
 }
 
 char	*ft_itoa(int n)
 {
 	int		i;
-	int		z;
 	char	*tab;
+	long	nb;
 
-	z = 0;
-	i = n_len(n, &z);
+	nb = (long)n;
+	i = n_len(nb);
 	tab = ft_calloc((i + 1), sizeof(char));
 	if (tab == NULL)
 		return (NULL);
+	if (n < 0)
+	{
+		tab[0] = '-';
+		nb = -nb;
+	}
 	tab[i] = 0;
 	i--;
 	while (i >= 0 && tab[i] != '-')
 	{
-		tab[i] = ind_n(n % 10) + '0';
-		n = n / 10;
+		tab[i] = nb % 10 + '0';
+		nb = nb / 10;
 		i--;
-		if (z == 1 && i == 0)
-			tab[i] = '-';
 	}
 	return (tab);
 }
